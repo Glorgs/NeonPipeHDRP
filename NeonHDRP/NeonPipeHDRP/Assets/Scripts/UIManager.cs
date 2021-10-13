@@ -13,12 +13,14 @@ public class UIManager : MySingleton<UIManager>
     [SerializeField] private TextMeshProUGUI winner;
     private PlayerInputAction playerAction;
     private InputActionMap actionMap;
+    private bool isPaused;
 
     private void Awake() {
         playerAction = new PlayerInputAction();
         actionMap = playerAction.asset.FindActionMap("Player1");
 
-        actionMap["Pause"].performed += ctx => PauseGame();
+        actionMap["Pause"].performed += ctx => EscapeButton();
+        isPaused = false;
     }
 
     public void StartGame() {
@@ -29,12 +31,20 @@ public class UIManager : MySingleton<UIManager>
         Application.Quit();
     }
 
+    private void EscapeButton() {
+        if (isPaused) ResumeGame();
+        if (!isPaused) PauseGame();
+    }
+
     public void PauseGame() {
+        Debug.Log("Pause");
+        isPaused = true;
         Time.timeScale = 0f;
         PauseMenu.SetActive(true);
     }
 
     public void ResumeGame() {
+        isPaused = false;
         Time.timeScale = 1f;
         PauseMenu.SetActive(false);
     }
@@ -54,5 +64,13 @@ public class UIManager : MySingleton<UIManager>
         EndMenu.SetActive(true);
 
         //Display correct player
+    }
+
+    private void OnEnable() {
+        playerAction.Enable();
+    }
+
+    private void OnDisable() {
+        playerAction.Disable();
     }
 }
