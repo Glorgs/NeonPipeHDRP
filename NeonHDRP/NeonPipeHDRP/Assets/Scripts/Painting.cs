@@ -41,7 +41,7 @@ public class Painting : MonoBehaviour
 
                 Debug.Log(up + " / " + forward + " / " + right);
 
-                if (Mathf.Abs(up) < 10 && Mathf.Abs(right) < 10 && forward > 0)
+                if (Mathf.Abs(up) < 4 && Mathf.Abs(right) < 5 && forward > 0)
                 {
                     Debug.Log("J'ai score");
                 }
