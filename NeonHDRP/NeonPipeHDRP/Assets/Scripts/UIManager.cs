@@ -10,6 +10,7 @@ public class UIManager : MySingleton<UIManager>
 {
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject EndMenu;
+    [SerializeField] private GameObject InGameUI;
     [SerializeField] private TextMeshProUGUI winner;
     private PlayerInputAction playerAction;
     private InputActionMap actionMap;
@@ -60,9 +61,9 @@ public class UIManager : MySingleton<UIManager>
     }
 
     public void ShowEndMenu() {
-        Time.timeScale = 0f;
+        InGameUI.SetActive(false);
         EndMenu.SetActive(true);
-
+        Time.timeScale = 0f;
         //Display correct player
     }
 

@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     public int blinkFrame = 3;
     public string damageSFX;
 
+    public InGamePlayerUI playerUI;
+
     private Renderer playerRenderer;
     private Rigidbody playerBody;
 
@@ -41,11 +43,12 @@ public class PlayerManager : MonoBehaviour
         {
             AudioManager.Si().Play(damageSFX, AudioManager.Si().gameObject);
         }
-        //UpdateUI();
+        
+        playerUI.UpdateLife(numberHP);
 
         if (numberHP == 0)
         {
-            //Death();
+            UIManager.Si().ShowEndMenu();
         }
         else
         {

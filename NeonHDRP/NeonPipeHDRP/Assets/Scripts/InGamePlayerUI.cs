@@ -23,11 +23,12 @@ public class InGamePlayerUI : MonoBehaviour
     }
 
     public void UpdateLife(int currentLife) {
+        Debug.Log("UpdateLife");
         for (int i = 0; i < hearts.Length; i++) {
             if (i < currentLife) {
                 hearts[i].enabled = true;
             } else {
-                hearts[i].enabled = true;
+                hearts[i].enabled = false;
             }
         }
     }
