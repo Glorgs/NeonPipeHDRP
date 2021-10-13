@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1818728590052277581}
   - component: {fileID: 4528821658180995463}
   - component: {fileID: 2961133162262182437}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: ld_cones_1 (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2961133163656659027}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: pfb_ld_static_plot
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
