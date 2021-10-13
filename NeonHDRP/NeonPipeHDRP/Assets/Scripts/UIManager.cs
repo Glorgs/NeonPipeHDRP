@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class UIManager : MySingleton<UIManager>
 {
     [SerializeField] private GameObject PauseMenu;
     [SerializeField] private GameObject EndMenu;
+    [SerializeField] private TextMeshProUGUI winner;
     private PlayerInputAction playerAction;
     private InputActionMap actionMap;
 
@@ -50,5 +52,7 @@ public class UIManager : MySingleton<UIManager>
     public void ShowEndMenu() {
         Time.timeScale = 0f;
         EndMenu.SetActive(true);
+
+        //Display correct player
     }
 }
