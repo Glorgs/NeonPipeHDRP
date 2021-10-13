@@ -91,7 +91,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""f676f81a-6757-44a6-a7f8-3d63f4ae2877"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -102,7 +102,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""6fffddd6-3352-4691-9df7-b00635c9a484"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -200,7 +200,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""30957cd1-62ec-4c61-8a53-5451468b953b"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Keyboard>/numpad1"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -211,7 +211,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""514db8cb-b202-4899-bd60-42436a13fb0c"",
-                    ""path"": ""<Keyboard>/numpad1"",
+                    ""path"": ""<Keyboard>/numpad3"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -14,12 +14,14 @@ public class PlayerController : MonoBehaviour
     private PlayerInputAction playerAction;
     private InputActionMap actionMap;
 
-    // [SerializeField] InputActionAsset actionAsset;
-
     //DEBUG : A ENLEVER DANS LA PREFAB FINALE
     public GameObject spray;
     public GameObject aimMin;
     public GameObject aimMax;
+
+    private Rigidbody playerRb;
+
+    private float distanceToCenter;
 
     private bool isPainting;
 
@@ -38,15 +40,11 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Start() {
+        playerRb = GetComponentInChildren<Rigidbody>();
         isPainting = false;
 
-        aimDistance = (spray.transform.position - transform.position).magnitude;
-
-        aimLimitMin = - aimingAngle / 2;
-        aimLimitMax = aimingAngle / 2;
-
-        aimMin.transform.RotateAround(transform.position, transform.forward, aimLimitMin);
-        aimMax.transform.RotateAround(transform.position, transform.forward, aimLimitMax);
+        InitializeAim();
+        InitializeConstraint();
     }
 
 
@@ -59,21 +57,27 @@ public class PlayerController : MonoBehaviour
     {
         Rotation();
 
-        // MoveForward(); A mettre plutôt sur un parent avec les 2 joueurs + la caméra
         Aim();
         Painting();
+
+        // ConstraintToCircle();
     }
 
     private void Rotation() { 
         float moveInput = actionMap["Move"].ReadValue<float>();
-        // Debug.Log("wesh");
 
         Vector3 deltaRotation = new Vector3(0, 0, moveInput * rotationSpeed);
         transform.Rotate(deltaRotation);
     }
 
-    private void MoveForward() {
-        transform.position += forwardSpeed * Time.deltaTime * transform.forward;
+    private void InitializeAim() {
+         aimDistance = (spray.transform.position - transform.position).magnitude;
+
+        aimLimitMin = - aimingAngle / 2;
+        aimLimitMax = aimingAngle / 2;
+
+        aimMin.transform.RotateAround(transform.position, transform.forward, aimLimitMin);
+        aimMax.transform.RotateAround(transform.position, transform.forward, aimLimitMax);       
     }
 
     private void Aim() {
@@ -114,6 +118,22 @@ public class PlayerController : MonoBehaviour
             spray.transform.RotateAround(spray.transform.position, transform.position - spray.transform.position, 300 * Time.deltaTime);
         }
     }
+
+    private void InitializeConstraint() {
+        distanceToCenter = (playerRb.position - transform.position).magnitude;
+        playerRb.velocity = Vector3.zero;
+    }
+
+    // private void ConstraintToCircle() {
+    //     Debug.Log("playerRb avant: " + playerRb.position);
+    //     Debug.Log("distanceToCenter: " + distanceToCenter);
+    //     // Vector3 direction = playerRb.position - transform.position;
+    //     // direction.Normalize();
+    //     playerRb.position = transform.position + distanceToCenter * (-transform.up);
+        
+
+    //     Debug.Log("playerRb position: " + playerRb.position);
+    // }
 
     private void OnEnable() {
         playerAction.Enable();
