@@ -22,11 +22,14 @@ public class PipeManager : MySingleton<PipeManager>
     private int numberHorizontalSlice = 5;
 
     private float difficulty = 0f;
+    public int[] timeDifficulty = new int[7] { 25, 40, 60, 75, 105, 120, 150};
+    public Vector2[] sliceNumbers = new Vector2[7] { new Vector2(1, 1), new Vector2(1, 2), new Vector2(3, 2), new Vector2(3, 3), new Vector2(4, 3), new Vector2(5, 4), new Vector2(5, 5) };
+
+    private int difficultyIndex = 0;  
 
     private void Awake()
     {
         lastPositionPlayer = player.transform.position;
-        chunksPipe = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -66,7 +69,19 @@ public class PipeManager : MySingleton<PipeManager>
             distanceParcouru = 0;
         }
 
+        UpdateDifficulty();
+    }
+    void UpdateDifficulty()
+    {
         difficulty += Time.deltaTime;
+        if( difficulty > timeDifficulty[difficultyIndex])
+        {
+            if (difficultyIndex < timeDifficulty.Count() - 1)
+            {
+                difficultyIndex++;
+            }
+
+        }
     }
 
     //Attache le pipe2 au pipe1
@@ -106,12 +121,12 @@ public class PipeManager : MySingleton<PipeManager>
     void CreateObstacle(Vector3 startPoint)
     {
         //int verticalSlice = Random.Range(0, numberVerticalSlice);
-        List<int> horizontalDirection = GetNumbersFromList(0, numberHorizontalSlice, 3);
+        List<int> horizontalDirection = GetNumbersFromList(0, numberHorizontalSlice, (int)sliceNumbers[difficultyIndex].x);
 
         foreach(int horizontalSlice in horizontalDirection)
         {
             Debug.Log(horizontalSlice);
-            List<int> verticalDirection = GetNumbersFromList(0, numberVerticalSlice, 5);
+            List<int> verticalDirection = GetNumbersFromList(0, numberVerticalSlice, (int)sliceNumbers[difficultyIndex].y);
             foreach (int verticalSlice in verticalDirection)
             {
                 float angle = (360 / numberVerticalSlice * verticalSlice);
