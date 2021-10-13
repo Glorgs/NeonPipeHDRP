@@ -23,7 +23,7 @@ public class PipeManager : MySingleton<PipeManager>
 
     private float difficulty = 0f;
     public int[] timeDifficulty = new int[7] { 25, 40, 60, 75, 105, 120, 150};
-    public Vector2[] sliceNumbers = new Vector2[7] { new Vector2(1, 1), new Vector2(1, 2), new Vector2(3, 2), new Vector2(3, 3), new Vector2(4, 3), new Vector2(5, 4), new Vector2(5, 5) };
+    public Vector3[] sliceNumbers = new Vector3[7] { new Vector3(1, 1, 5), new Vector3(1, 2, 5), new Vector3(3, 2, 4), new Vector3(3, 3, 4), new Vector3(4, 3, 3), new Vector3(5, 4, 3), new Vector3(5, 5, 2) };
 
     private int difficultyIndex = 0;  
 
@@ -104,15 +104,31 @@ public class PipeManager : MySingleton<PipeManager>
         yield return new WaitForSeconds(0.2f);
         
         Vector3 pipePosition = pipe.transform.position;
-        Vector3 offset = new Vector3(0,0,Random.Range(0, 16));
-        float angle = Random.Range(0, 360);
-        Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
-        
+        float baseOffset = 4;
+        Vector3 offset = new Vector3(0,0, baseOffset);
+       
+        Vector3 dir = Vector3.zero;
+        for (int j = 0; j < 5; j++)
+        {
+            float angle = Random.Range(0, 360);
+            for (int i = 0; i < 4; i++)
+            {
+                int spawn = Random.Range(0, (int)sliceNumbers[difficultyIndex].z);
+                if (spawn == 0)
+                {
+                    dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
+                    GameObject tag = Instantiate(tagPrefab, pipePosition + offset + dir * 5f, Quaternion.LookRotation(dir, Vector3.up));
+                    tag.transform.SetParent(pipe.transform);
+                    pipe.listTag.Add(tag);
+                }
+                angle += 90;
+            }
+            offset += new Vector3(0,0,(pipeLength - baseOffset) / 5);
+        }
+
         Debug.DrawLine(pipePosition + offset, pipePosition + offset + dir * 8, Color.red, 10f);
 
-        GameObject tag = Instantiate(tagPrefab, pipePosition + offset + dir * 5f, Quaternion.LookRotation(dir, Vector3.up));
-        tag.transform.SetParent(pipe.transform);
-        pipe.listTag.Add(tag);
+
         //tag.transform.localEulerAngles = new Vector3(tag.transform.localEulerAngles.x, 90, 180);
 
         CreateObstacle(pipePosition + offsetObstacle, pipe);
