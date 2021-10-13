@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class PipeManager : Singleton<PipeManager>
+public class PipeManager : MySingleton<PipeManager>
 {
     public GameObject player;
-    static public List<GameObject> chunksPipe;
+    public List<GameObject> chunksPipe;
     public GameObject chunkPrefab;
     public int maxNumberChunk = 3;
     public GameObject tagPrefab;

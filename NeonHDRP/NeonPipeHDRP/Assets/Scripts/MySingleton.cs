@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public abstract class Singleton<T> : MonoBehaviour where T : Component
+public abstract class MySingleton<T> : MonoBehaviour where T : Component
 {
     private static T instance;
 
-    public static T GetInstance()
+    public static T Si()
     {
 
         if (instance == null)
