@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private float distanceToCenter;
 
-    private bool isPainting;
+    public bool isPainting;
 
     private float aimCurrentAngle;
     private float aimDistance;
@@ -36,13 +36,12 @@ public class PlayerController : MonoBehaviour
 
         InitializeActionMap();
 
-        actionMap["Paint"].performed += ctx => StartPaint();
-        actionMap["Paint"].canceled += ctx => StopPaint();
+        actionMap["Paint"].performed += ctx => PaintingManager();
     }
 
     private void Start() {
         playerRb = GetComponentInChildren<Rigidbody>();
-        isPainting = false;
+        isPainting = true;
 
         InitializeAim();
         // InitializeConstraint();
@@ -60,7 +59,6 @@ public class PlayerController : MonoBehaviour
 
         Rotation();
         Aim();
-        Painting();
     }
 
     private void UpdateRotationAndAimSpeed() {
@@ -106,19 +104,8 @@ public class PlayerController : MonoBehaviour
          return Mathf.Clamp(angle, min, max);
      }
 
-    private void StartPaint() {
-        isPainting = true;
-    }
-
-    private void StopPaint() {
-        isPainting = false;
-    }
-
-    private void Painting() {
-        if (isPainting) {
-            //DEBUG
-            spray.transform.RotateAround(spray.transform.position, transform.position - spray.transform.position, 300 * Time.deltaTime);
-        }
+    private void PaintingManager() {
+        isPainting = !isPainting;
     }
 
     // private void InitializeConstraint() {

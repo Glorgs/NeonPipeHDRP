@@ -18,11 +18,17 @@ public class Painting : MonoBehaviour
     private float t = 0f;
     private GameObject peinture;
 
+    private PlayerController playerController;
+
+    private void Start() {
+        playerController = GetComponentInParent<PlayerController>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         t += Time.deltaTime;
-        if(t > timeBetweenSpawn)
+        if(t > timeBetweenSpawn && playerController.isPainting)
         {
             peinture = Instantiate(decalPrefab, decalSpawnTransform.position, Quaternion.AngleAxis(90,Vector3.right));
             peinture.transform.localEulerAngles = new Vector3(90 - transform.eulerAngles.z , 90, 0);

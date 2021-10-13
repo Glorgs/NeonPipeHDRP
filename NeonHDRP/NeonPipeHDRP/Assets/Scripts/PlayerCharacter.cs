@@ -39,7 +39,6 @@ public class PlayerCharacter : MonoBehaviour
     }
 
     private void StartMoving() {
-        Debug.Log("StartMoving");
         moveDirection = Mathf.Sign(actionMap["Move"].ReadValue<float>());
         currentYAngle = initialRotation.y + moveDirection * movingAngle;
     }
