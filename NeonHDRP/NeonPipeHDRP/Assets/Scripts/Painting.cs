@@ -7,6 +7,8 @@ public class Painting : MonoBehaviour
     public float timeBetweenSpawn = 0.1f;
     public GameObject decalPrefab;
     public Transform decalSpawnTransform;
+    public string spraySFX;
+    public string scoringSFX;
 
     [SerializeField] private InGamePlayerUI playerUI;
 
@@ -26,6 +28,11 @@ public class Painting : MonoBehaviour
         {
             peinture = Instantiate(decalPrefab, decalSpawnTransform.position, Quaternion.AngleAxis(90,Vector3.right));
             peinture.transform.localEulerAngles = new Vector3(90 - transform.eulerAngles.z , 90, 0);
+
+            if(spraySFX != null)
+            {
+                AudioManager.Si().Play(spraySFX, AudioManager.Si().gameObject);
+            }
             CheckIfInTag();
 
             t = 0;
@@ -56,7 +63,15 @@ public class Painting : MonoBehaviour
                 {
                     score++;
                     playerUI.UpdateScoreText(score);
+
+                    if (scoringSFX != null)
+                    {
+                        AudioManager.Si().Play(scoringSFX, AudioManager.Si().gameObject);
+                    }
+
+                    break;
                 }
+
             }
         }
     }
