@@ -8,7 +8,6 @@ public class PlayerManager : MonoBehaviour
     public float invulnerabilityTime = 1f;
     public int blinkFrame = 3;
 
-    private float score = 0f;
     private Renderer playerRenderer;
     private Rigidbody playerBody;
 

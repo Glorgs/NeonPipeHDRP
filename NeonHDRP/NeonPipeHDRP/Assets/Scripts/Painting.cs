@@ -8,6 +8,10 @@ public class Painting : MonoBehaviour
     public GameObject decalPrefab;
     public Transform decalSpawnTransform;
 
+    [SerializeField] private InGamePlayerUI playerUI;
+
+    private int score = 0;
+
     private float t = 0f;
     private GameObject peinture;
 
@@ -44,6 +48,8 @@ public class Painting : MonoBehaviour
                 if (Mathf.Abs(up) < 4 && Mathf.Abs(right) < 5 && forward > 0)
                 {
                     Debug.Log("J'ai score");
+                    score++;
+                    playerUI.UpdateScoreText(score);
                 }
             }
         }

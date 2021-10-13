@@ -6,7 +6,6 @@ using TMPro;
 
 public class InGamePlayerUI : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
     [SerializeField] private GameObject LifeBar;
     [SerializeField] private TextMeshProUGUI scoreText;
     
