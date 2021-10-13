@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationSpeedMax = 40f;
 
     [SerializeField] private float aimingAngle = 90f;
-    [SerializeField] private float aimingSpeed = 5f;
+    [SerializeField] private float aimingSpeed = 3f;
     [SerializeField] private float aimingSpeedIncrease = 0.001f;
     [SerializeField] private float aimingSpeedMax = 15f;
 
@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
 
     //DEBUG : A ENLEVER DANS LA PREFAB FINALE
     public GameObject spray;
-    public GameObject aimMin;
-    public GameObject aimMax;
 
     private Rigidbody playerRb;
 
@@ -81,10 +79,7 @@ public class PlayerController : MonoBehaviour
          aimDistance = (spray.transform.position - transform.position).magnitude;
 
         aimLimitMin = - aimingAngle / 2;
-        aimLimitMax = aimingAngle / 2;
-
-        aimMin.transform.RotateAround(transform.position, transform.forward, aimLimitMin);
-        aimMax.transform.RotateAround(transform.position, transform.forward, aimLimitMax);       
+        aimLimitMax = aimingAngle / 2;    
     }
 
     private void Aim() {
