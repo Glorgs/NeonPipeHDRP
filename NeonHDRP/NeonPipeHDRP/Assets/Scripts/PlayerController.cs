@@ -124,17 +124,6 @@ public class PlayerController : MonoBehaviour
         playerRb.velocity = Vector3.zero;
     }
 
-    // private void ConstraintToCircle() {
-    //     Debug.Log("playerRb avant: " + playerRb.position);
-    //     Debug.Log("distanceToCenter: " + distanceToCenter);
-    //     // Vector3 direction = playerRb.position - transform.position;
-    //     // direction.Normalize();
-    //     playerRb.position = transform.position + distanceToCenter * (-transform.up);
-        
-
-    //     Debug.Log("playerRb position: " + playerRb.position);
-    // }
-
     private void OnEnable() {
         playerAction.Enable();
     }
