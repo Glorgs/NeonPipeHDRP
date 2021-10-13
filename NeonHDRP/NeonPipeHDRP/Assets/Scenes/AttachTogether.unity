@@ -683,6 +683,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1603721710210841761, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027896754628007968, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
 --- !u!1 &554645501
@@ -850,6 +858,15 @@ MonoBehaviour:
   tagPrefab: {fileID: 120220310239105473, guid: c251d08665826bc439d291a864e5f0e6, type: 3}
   obstaclePrefab: {fileID: 2961133163656659024, guid: 5d951b3e335bf764994d997fec6c3861, type: 3}
   distanceParcouru: 0
+  timeDifficulty: 19000000280000003c0000004b000000690000007800000096000000
+  sliceNumbers:
+  - {x: 1, y: 1}
+  - {x: 1, y: 2}
+  - {x: 3, y: 2}
+  - {x: 3, y: 3}
+  - {x: 4, y: 3}
+  - {x: 5, y: 4}
+  - {x: 5, y: 5}
 --- !u!4 &703970899
 Transform:
   m_ObjectHideFlags: 0
