@@ -41,6 +41,14 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""55f33de0-b282-4456-91db-a930b5b3301e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -120,6 +128,17 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""action"": ""Paint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""17390514-c8e5-444f-9e8d-393f35bf2537"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -147,6 +166,14 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""name"": ""Paint"",
                     ""type"": ""Button"",
                     ""id"": ""28ea0559-382d-4130-a86a-0c6de676ff3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c73f477-c2b6-4d5a-88cb-7f7744a15b28"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -229,6 +256,17 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                     ""action"": ""Paint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8ca7ace-833a-481b-9731-faea35ee9deb"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -240,11 +278,13 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         m_Player1_Move = m_Player1.FindAction("Move", throwIfNotFound: true);
         m_Player1_Aim = m_Player1.FindAction("Aim", throwIfNotFound: true);
         m_Player1_Paint = m_Player1.FindAction("Paint", throwIfNotFound: true);
+        m_Player1_Pause = m_Player1.FindAction("Pause", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
         m_Player2_Aim = m_Player2.FindAction("Aim", throwIfNotFound: true);
         m_Player2_Paint = m_Player2.FindAction("Paint", throwIfNotFound: true);
+        m_Player2_Pause = m_Player2.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -297,6 +337,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Move;
     private readonly InputAction m_Player1_Aim;
     private readonly InputAction m_Player1_Paint;
+    private readonly InputAction m_Player1_Pause;
     public struct Player1Actions
     {
         private @PlayerInputAction m_Wrapper;
@@ -304,6 +345,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player1_Move;
         public InputAction @Aim => m_Wrapper.m_Player1_Aim;
         public InputAction @Paint => m_Wrapper.m_Player1_Paint;
+        public InputAction @Pause => m_Wrapper.m_Player1_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -322,6 +364,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Paint.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPaint;
                 @Paint.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPaint;
                 @Paint.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPaint;
+                @Pause.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -335,6 +380,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Paint.started += instance.OnPaint;
                 @Paint.performed += instance.OnPaint;
                 @Paint.canceled += instance.OnPaint;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -346,6 +394,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Move;
     private readonly InputAction m_Player2_Aim;
     private readonly InputAction m_Player2_Paint;
+    private readonly InputAction m_Player2_Pause;
     public struct Player2Actions
     {
         private @PlayerInputAction m_Wrapper;
@@ -353,6 +402,7 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player2_Move;
         public InputAction @Aim => m_Wrapper.m_Player2_Aim;
         public InputAction @Paint => m_Wrapper.m_Player2_Paint;
+        public InputAction @Pause => m_Wrapper.m_Player2_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -371,6 +421,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Paint.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPaint;
                 @Paint.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPaint;
                 @Paint.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPaint;
+                @Pause.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -384,6 +437,9 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 @Paint.started += instance.OnPaint;
                 @Paint.performed += instance.OnPaint;
                 @Paint.canceled += instance.OnPaint;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -393,11 +449,13 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnPaint(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnPaint(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
