@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class PipeManager : MonoBehaviour
+public class PipeManager : Singleton<PipeManager>
 {
     public GameObject player;
-    public List<GameObject> chunksPipe;
+    static public List<GameObject> chunksPipe;
     public GameObject chunkPrefab;
     public int maxNumberChunk = 3;
     public GameObject tagPrefab;
+    public GameObject obstaclePrefab;
 
     [SerializeField]
     private float distanceParcouru = 0f;
@@ -25,6 +26,7 @@ public class PipeManager : MonoBehaviour
     private void Awake()
     {
         lastPositionPlayer = player.transform.position;
+        chunksPipe = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -39,6 +41,8 @@ public class PipeManager : MonoBehaviour
             if (chunksPipe.Count >= maxNumberChunk)
             {
                 GameObject chunk = chunksPipe[0];
+                chunk.GetComponent<Pipe>().listTag.Clear();
+
                 chunksPipe.RemoveAt(0);
                 newChunk = chunk;
             }
@@ -73,17 +77,23 @@ public class PipeManager : MonoBehaviour
         
         Vector3 pipePosition = pipe.transform.position;
         Vector3 offset = new Vector3(0,0,Random.Range(0, 16));
-        Vector3 dir = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.forward) * Vector3.right;
+        float angle = Random.Range(0, 360);
+        Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
         
-        Debug.DrawLine(pipePosition + offset, pipePosition + offset + dir * 100, Color.red, 10f);
+        Debug.DrawLine(pipePosition + offset, pipePosition + offset + dir * 8, Color.red, 10f);
 
         RaycastHit hit;
 
-        if (Physics.Raycast(pipePosition + offset, dir, out hit, 100)) 
+        /*if (Physics.Raycast(pipePosition + offset, dir, out hit, 100)) 
         {
             Debug.Log("hello");
             Instantiate(tagPrefab, hit.point, Quaternion.identity);
-        }
+        }*/
+
+        GameObject tag = Instantiate(tagPrefab, pipePosition + offset + dir * 5f, Quaternion.LookRotation(dir, Vector3.up));
+        tag.transform.SetParent(pipe.transform);
+        pipe.listTag.Add(tag);
+        //tag.transform.localEulerAngles = new Vector3(tag.transform.localEulerAngles.x, 90, 180);
 
         CreateObstacle(pipePosition + offsetObstacle);
     }
@@ -102,7 +112,7 @@ public class PipeManager : MonoBehaviour
                 float angle = (360 / numberVerticalSlice * verticalSlice);
                 Vector3 dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
 
-                Debug.DrawLine(startPoint + new Vector3(0,0, (pipeLength/numberHorizontalSlice) * horizontalSlice), startPoint + dir * 100, Color.blue, 10f);
+                Debug.DrawLine(startPoint + new Vector3(0,0, (pipeLength/numberHorizontalSlice) * horizontalSlice), startPoint + dir * 8, Color.blue, 10f);
 
                 RaycastHit hit;
                 if (Physics.Raycast(startPoint + new Vector3(0, 0, (pipeLength / numberHorizontalSlice) * horizontalSlice), dir, out hit, 100))
@@ -110,6 +120,7 @@ public class PipeManager : MonoBehaviour
                     Debug.Log("hello");
                     //Instantiate(tagPrefab, hit.point, Quaternion.identity);
                 }
+                Instantiate(obstaclePrefab, startPoint + new Vector3(0, 0, (pipeLength / numberHorizontalSlice) * horizontalSlice) + dir * 8, Quaternion.AngleAxis(angle + 90, Vector3.forward));
 
             }
         }
@@ -151,6 +162,5 @@ public class PipeManager : MonoBehaviour
         myList.RemoveAt(pos);
 
         return x;
-
     }
 }
