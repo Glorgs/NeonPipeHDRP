@@ -45,11 +45,19 @@ public class PipeManager : MySingleton<PipeManager>
             {
                 GameObject chunk = chunksPipe[0];
                 List<GameObject> tags = chunk.GetComponent<Pipe>().listTag;
-                foreach(GameObject obj in tags)
+                List< GameObject> obstacles = chunk.GetComponent<Pipe>().obstacle;
+                foreach (GameObject obj in tags)
                 {
                     Destroy(obj);
                 }
+
+                foreach (GameObject obj in obstacles)
+                {
+                    Destroy(obj);
+                }
+
                 tags.Clear();
+                obstacles.Clear();
 
                 chunksPipe.RemoveAt(0);
                 newChunk = chunk;
@@ -102,23 +110,15 @@ public class PipeManager : MySingleton<PipeManager>
         
         Debug.DrawLine(pipePosition + offset, pipePosition + offset + dir * 8, Color.red, 10f);
 
-        RaycastHit hit;
-
-        /*if (Physics.Raycast(pipePosition + offset, dir, out hit, 100)) 
-        {
-            Debug.Log("hello");
-            Instantiate(tagPrefab, hit.point, Quaternion.identity);
-        }*/
-
         GameObject tag = Instantiate(tagPrefab, pipePosition + offset + dir * 5f, Quaternion.LookRotation(dir, Vector3.up));
         tag.transform.SetParent(pipe.transform);
         pipe.listTag.Add(tag);
         //tag.transform.localEulerAngles = new Vector3(tag.transform.localEulerAngles.x, 90, 180);
 
-        CreateObstacle(pipePosition + offsetObstacle);
+        CreateObstacle(pipePosition + offsetObstacle, pipe);
     }
 
-    void CreateObstacle(Vector3 startPoint)
+    void CreateObstacle(Vector3 startPoint, Pipe pipe)
     {
         //int verticalSlice = Random.Range(0, numberVerticalSlice);
         List<int> horizontalDirection = GetNumbersFromList(0, numberHorizontalSlice, (int)sliceNumbers[difficultyIndex].x);
@@ -140,7 +140,8 @@ public class PipeManager : MySingleton<PipeManager>
                     Debug.Log("hello");
                     //Instantiate(tagPrefab, hit.point, Quaternion.identity);
                 }
-                Instantiate(obstaclePrefab, startPoint + new Vector3(0, 0, (pipeLength / numberHorizontalSlice) * horizontalSlice) + dir * 8, Quaternion.AngleAxis(angle + 90, Vector3.forward));
+                GameObject obstacle = Instantiate(obstaclePrefab, startPoint + new Vector3(0, 0, (pipeLength / numberHorizontalSlice) * horizontalSlice) + dir * 8, Quaternion.AngleAxis(angle + 90, Vector3.forward));
+                pipe.obstacle.Add(obstacle);
 
             }
         }
