@@ -3,12 +3,7 @@ guid: fa1aa92a7d20a95458bc5d336a286505
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: sWEAT
-    second: {fileID: 2100000, guid: ff714e2f2ad03ed4aafe1644067d1672, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
