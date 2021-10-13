@@ -41,7 +41,12 @@ public class PipeManager : MySingleton<PipeManager>
             if (chunksPipe.Count >= maxNumberChunk)
             {
                 GameObject chunk = chunksPipe[0];
-                chunk.GetComponent<Pipe>().listTag.Clear();
+                List<GameObject> tags = chunk.GetComponent<Pipe>().listTag;
+                foreach(GameObject obj in tags)
+                {
+                    Destroy(obj);
+                }
+                tags.Clear();
 
                 chunksPipe.RemoveAt(0);
                 newChunk = chunk;
