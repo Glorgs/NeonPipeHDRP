@@ -8,7 +8,6 @@ public class PlayerManager : MonoBehaviour
     public float invulnerabilityTime = 1f;
     public int blinkFrame = 3;
 
-    private float score = 0f;
     private Renderer playerRenderer;
     private Rigidbody playerBody;
 
@@ -30,6 +29,7 @@ public class PlayerManager : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             Damage();
+            Debug.Log("Collision");
         }
     }
 

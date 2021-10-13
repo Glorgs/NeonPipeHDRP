@@ -8,6 +8,13 @@ public class Painting : MonoBehaviour
     public GameObject decalPrefab;
     public Transform decalSpawnTransform;
 
+    [SerializeField] private InGamePlayerUI playerUI;
+
+    [SerializeField] private float timeBetweenSpawnDecrease = 0.001f;
+    [SerializeField] private float timeBetweenSpawnMin = 0.0001f;
+
+    private int score = 0;
+
     private float t = 0f;
     private GameObject peinture;
 
@@ -23,6 +30,12 @@ public class Painting : MonoBehaviour
 
             t = 0;
         }
+
+        UpdatePaintingRate();
+    }
+
+    private void UpdatePaintingRate() {
+        timeBetweenSpawn = Mathf.Clamp(timeBetweenSpawn - timeBetweenSpawnDecrease * Time.deltaTime, timeBetweenSpawnMin, 1);
     }
 
     void CheckIfInTag()
@@ -39,11 +52,10 @@ public class Painting : MonoBehaviour
                 float forward = Vector3.Dot(newProjectPeinture, t.forward);
                 float right = Vector3.Dot(newProjectPeinture, t.right);
 
-                Debug.Log(up + " / " + forward + " / " + right);
-
                 if (Mathf.Abs(up) < 4 && Mathf.Abs(right) < 5 && forward > 0)
                 {
-                    Debug.Log("J'ai score");
+                    score++;
+                    playerUI.UpdateScoreText(score);
                 }
             }
         }

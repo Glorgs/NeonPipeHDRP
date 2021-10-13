@@ -5,19 +5,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float forwardSpeed = 1f;
     [SerializeField] private float rotationSpeed = 20f;
+    [SerializeField] private float rotationSpeedIncrease = 0.001f;
+    [SerializeField] private float rotationSpeedMax = 40f;
 
     [SerializeField] private float aimingAngle = 90f;
-    [SerializeField] private float aimingSpeed = 10f;
+    [SerializeField] private float aimingSpeed = 3f;
+    [SerializeField] private float aimingSpeedIncrease = 0.001f;
+    [SerializeField] private float aimingSpeedMax = 15f;
 
     private PlayerInputAction playerAction;
     private InputActionMap actionMap;
 
     //DEBUG : A ENLEVER DANS LA PREFAB FINALE
     public GameObject spray;
-    public GameObject aimMin;
-    public GameObject aimMax;
 
     private Rigidbody playerRb;
 
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
         isPainting = false;
 
         InitializeAim();
-        InitializeConstraint();
+        // InitializeConstraint();
     }
 
 
@@ -55,12 +56,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Rotation();
+        UpdateRotationAndAimSpeed();
 
+        Rotation();
         Aim();
         Painting();
+    }
 
-        // ConstraintToCircle();
+    private void UpdateRotationAndAimSpeed() {
+        rotationSpeed = Mathf.Clamp(rotationSpeed + rotationSpeedIncrease * Time.deltaTime, 0, rotationSpeedMax);
+        aimingSpeed = Mathf.Clamp(aimingSpeed + aimingSpeedIncrease * Time.deltaTime, 0, aimingSpeedMax);
     }
 
     private void Rotation() { 
@@ -74,10 +79,7 @@ public class PlayerController : MonoBehaviour
          aimDistance = (spray.transform.position - transform.position).magnitude;
 
         aimLimitMin = - aimingAngle / 2;
-        aimLimitMax = aimingAngle / 2;
-
-        aimMin.transform.RotateAround(transform.position, transform.forward, aimLimitMin);
-        aimMax.transform.RotateAround(transform.position, transform.forward, aimLimitMax);       
+        aimLimitMax = aimingAngle / 2;    
     }
 
     private void Aim() {
@@ -119,10 +121,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void InitializeConstraint() {
-        distanceToCenter = (playerRb.position - transform.position).magnitude;
-        playerRb.velocity = Vector3.zero;
-    }
+    // private void InitializeConstraint() {
+    //     distanceToCenter = (playerRb.position - transform.position).magnitude;
+    //     playerRb.velocity = Vector3.zero;
+    // }
 
     private void OnEnable() {
         playerAction.Enable();
