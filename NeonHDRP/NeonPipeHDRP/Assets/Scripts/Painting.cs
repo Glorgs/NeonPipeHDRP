@@ -43,11 +43,8 @@ public class Painting : MonoBehaviour
                 float forward = Vector3.Dot(newProjectPeinture, t.forward);
                 float right = Vector3.Dot(newProjectPeinture, t.right);
 
-                Debug.Log(up + " / " + forward + " / " + right);
-
                 if (Mathf.Abs(up) < 4 && Mathf.Abs(right) < 5 && forward > 0)
                 {
-                    Debug.Log("J'ai score");
                     score++;
                     playerUI.UpdateScoreText(score);
                 }

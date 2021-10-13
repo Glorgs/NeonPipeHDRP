@@ -26,7 +26,6 @@ public class PipeManager : MySingleton<PipeManager>
     private void Awake()
     {
         lastPositionPlayer = player.transform.position;
-        chunksPipe = new List<GameObject>();
     }
 
     // Update is called once per frame
