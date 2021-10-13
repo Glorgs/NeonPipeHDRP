@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour
     public int numberHP = 3;
     public float invulnerabilityTime = 1f;
     public int blinkFrame = 3;
+    public string damageSFX;
 
     private Renderer playerRenderer;
     private Rigidbody playerBody;
@@ -36,6 +37,10 @@ public class PlayerManager : MonoBehaviour
     void Damage()
     {
         numberHP--;
+        if (damageSFX != null)
+        {
+            AudioManager.Si().Play(damageSFX, AudioManager.Si().gameObject);
+        }
         //UpdateUI();
 
         if (numberHP == 0)
@@ -53,7 +58,7 @@ public class PlayerManager : MonoBehaviour
         float t = 0;
         int blink = 0;
 
-        playerBody.isKinematic = true;
+        //playerBody.isKinematic = true;
         playerRenderer.enabled = false;
 
         while(t < invulnerabilityTime)
@@ -68,7 +73,7 @@ public class PlayerManager : MonoBehaviour
             yield return null;
         }
 
-        playerBody.isKinematic = false;
+        //playerBody.isKinematic = false;
         playerRenderer.enabled = true;
     }
 
