@@ -38,7 +38,6 @@ public class UIManager : MySingleton<UIManager>
     }
 
     public void PauseGame() {
-        Debug.Log("Pause");
         isPaused = true;
         Time.timeScale = 0f;
         PauseMenu.SetActive(true);

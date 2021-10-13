@@ -63,7 +63,7 @@ public class AudioManager : MySingleton<AudioManager>
             }
         }
         catch(NullReferenceException){
-            Debug.Log("Audio clip" + name + " non existant");
+            // Debug.Log("Audio clip" + name + " non existant");
         }
     } 
 

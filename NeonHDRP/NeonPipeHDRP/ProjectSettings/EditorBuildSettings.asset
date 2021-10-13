@@ -11,8 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UIScenes/StartMenu.unity
     guid: ce6936bb597cbb241b67efb41c971c59
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UIScenes/PlayingScene.unity
     guid: 33959aff75c9bfd4f8a1b33b5392db9c
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 0961c0b125a9a6e46a30d91e386ce1dc
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e7fdc65c6824d11449765caba96e7ca7, type: 2}
