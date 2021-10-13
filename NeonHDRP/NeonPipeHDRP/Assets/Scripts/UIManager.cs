@@ -3,9 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
-public class UIManager : MonoBehaviour
+public class UIManager : MySingleton<UIManager>
 {
+    [SerializeField] private GameObject PauseMenu;
+    [SerializeField] private GameObject EndMenu;
+    private PlayerInputAction playerAction;
+    private InputActionMap actionMap;
+
+    private void Awake() {
+        playerAction = new PlayerInputAction();
+        actionMap = playerAction.asset.FindActionMap("Player1");
+
+        actionMap["Pause"].performed += ctx => PauseGame();
+    }
+
     public void StartGame() {
         SceneManager.LoadScene(1);
     }
@@ -14,8 +27,14 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void PauseGame() {
+        Time.timeScale = 0f;
+        PauseMenu.SetActive(true);
+    }
+
     public void ResumeGame() {
         Time.timeScale = 1f;
+        PauseMenu.SetActive(false);
     }
 
     public void RestartGame() {
@@ -26,5 +45,10 @@ public class UIManager : MonoBehaviour
     public void GoToMenu() {
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
+    }
+
+    public void ShowEndMenu() {
+        Time.timeScale = 0f;
+        EndMenu.SetActive(true);
     }
 }

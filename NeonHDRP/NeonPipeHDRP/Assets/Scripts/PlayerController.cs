@@ -108,11 +108,6 @@ public class PlayerController : MonoBehaviour
         isPainting = !isPainting;
     }
 
-    // private void InitializeConstraint() {
-    //     distanceToCenter = (playerRb.position - transform.position).magnitude;
-    //     playerRb.velocity = Vector3.zero;
-    // }
-
     private void OnEnable() {
         playerAction.Enable();
     }
