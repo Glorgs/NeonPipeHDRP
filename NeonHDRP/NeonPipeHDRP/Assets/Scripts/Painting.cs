@@ -10,6 +10,9 @@ public class Painting : MonoBehaviour
 
     [SerializeField] private InGamePlayerUI playerUI;
 
+    [SerializeField] private float timeBetweenSpawnDecrease = 0.001f;
+    [SerializeField] private float timeBetweenSpawnMin = 0.0001f;
+
     private int score = 0;
 
     private float t = 0f;
@@ -27,6 +30,12 @@ public class Painting : MonoBehaviour
 
             t = 0;
         }
+
+        UpdatePaintingRate();
+    }
+
+    private void UpdatePaintingRate() {
+        timeBetweenSpawn = Mathf.Clamp(timeBetweenSpawn - timeBetweenSpawnDecrease * Time.deltaTime, timeBetweenSpawnMin, 1);
     }
 
     void CheckIfInTag()

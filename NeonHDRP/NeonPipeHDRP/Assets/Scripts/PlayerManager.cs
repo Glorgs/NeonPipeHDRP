@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour
         if(collision.gameObject.tag == "Obstacle")
         {
             Damage();
+            Debug.Log("Collision");
         }
     }
 

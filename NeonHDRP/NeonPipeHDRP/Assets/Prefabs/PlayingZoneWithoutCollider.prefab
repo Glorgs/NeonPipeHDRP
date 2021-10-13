@@ -283,7 +283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282171189127488004}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 282171190049469633}
@@ -446,7 +446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282171189520224008}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -8}
+  m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 282171190762934210}
@@ -643,7 +643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282171189598465804}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 282171190316075762}
@@ -726,7 +726,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282171189646263521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 282171190316075762}
@@ -997,6 +997,8 @@ GameObject:
   m_Component:
   - component: {fileID: 282171190049469633}
   - component: {fileID: 282171190049469632}
+  - component: {fileID: 661157809}
+  - component: {fileID: 661157810}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -1035,13 +1037,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d31297b248117d40b40416861588f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1
   rotationSpeed: 2
+  rotationSpeedIncrease: 0.001
+  rotationSpeedMax: 40
   aimingAngle: 90
   aimingSpeed: 10
+  aimingSpeedIncrease: 0.001
+  aimingSpeedMax: 15
   spray: {fileID: 282171189127488004}
   aimMin: {fileID: 282171188905502249}
   aimMax: {fileID: 282171189982190551}
+--- !u!114 &661157809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282171190049469638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c63ae5a94ce88549b56acea6517469e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenSpawn: 0.01
+  decalPrefab: {fileID: 3903896107487537892, guid: 6770ff232fab0554da1c9e59c3ede21a, type: 3}
+  decalSpawnTransform: {fileID: 282171189127488007}
+  playerUI: {fileID: 0}
+  timeBetweenSpawnDecrease: 0.001
+  timeBetweenSpawnMin: 0.0001
+--- !u!114 &661157810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282171190049469638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95318bb7e8fd52c4e9ce16ac5da3b20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberHP: 3
+  invulnerabilityTime: 1
+  blinkFrame: 3
 --- !u!1 &282171190255399022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1092,6 @@ GameObject:
   - component: {fileID: 282171190255399018}
   - component: {fileID: 282171190255399019}
   - component: {fileID: 282171190255399016}
-  - component: {fileID: 3515921853579979929}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -1070,7 +1107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282171190255399022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 282171190049469633}
@@ -1139,22 +1176,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &3515921853579979929
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282171190255399022}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
 --- !u!1 &282171190316075763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1186,8 @@ GameObject:
   m_Component:
   - component: {fileID: 282171190316075762}
   - component: {fileID: 282171190316075661}
+  - component: {fileID: 361219869}
+  - component: {fileID: 361219870}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -1203,13 +1226,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d31297b248117d40b40416861588f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1
   rotationSpeed: 2
+  rotationSpeedIncrease: 0.001
+  rotationSpeedMax: 40
   aimingAngle: 90
-  aimingSpeed: 10
+  aimingSpeed: 3
+  aimingSpeedIncrease: 0.001
+  aimingSpeedMax: 15
   spray: {fileID: 282171189598465804}
   aimMin: {fileID: 282171189106303234}
   aimMax: {fileID: 282171189484053849}
+--- !u!114 &361219869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282171190316075763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c63ae5a94ce88549b56acea6517469e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenSpawn: 0.01
+  decalPrefab: {fileID: 3903896107487537892, guid: 6770ff232fab0554da1c9e59c3ede21a, type: 3}
+  decalSpawnTransform: {fileID: 282171189598465807}
+  playerUI: {fileID: 0}
+  timeBetweenSpawnDecrease: 0.001
+  timeBetweenSpawnMin: 0.0001
+--- !u!114 &361219870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282171190316075763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95318bb7e8fd52c4e9ce16ac5da3b20b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberHP: 3
+  invulnerabilityTime: 1
+  blinkFrame: 3
 --- !u!1 &282171190699994251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,4 +1412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d679a4913d97d5644b71d99c0869dc75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedForward: 1
+  speedForward: 15
+  speedIncrease: 0.01
+  maxSpeed: 50

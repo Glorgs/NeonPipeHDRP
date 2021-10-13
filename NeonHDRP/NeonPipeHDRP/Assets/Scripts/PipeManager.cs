@@ -109,7 +109,6 @@ public class PipeManager : MySingleton<PipeManager>
 
         foreach(int horizontalSlice in horizontalDirection)
         {
-            Debug.Log(horizontalSlice);
             List<int> verticalDirection = GetNumbersFromList(0, numberVerticalSlice, 5);
             foreach (int verticalSlice in verticalDirection)
             {
