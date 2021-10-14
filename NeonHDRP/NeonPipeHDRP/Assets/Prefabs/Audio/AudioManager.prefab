@@ -44,11 +44,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundsFx:
-  - name: AmbienceLabo
-    audioClip: {fileID: 8300000, guid: ab2c0f48eceddb34b9f0e93f197d2499, type: 3}
+  - name: Music
+    audioClip: {fileID: 8300000, guid: 35212da887634784e8bf1bb50b1a881b, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 1
+    spatialBlend: 0
+  - name: MusicPlay
+    audioClip: {fileID: 8300000, guid: bbae7ebb66aa70e47ba59d8d28ecabfb, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 1
+    spatialBlend: 0
+  - name: Spray1
+    audioClip: {fileID: 8300000, guid: fb67a99dbb028d64a9eca7f0c2a8dfff, type: 3}
     audioSource: {fileID: 0}
     volume: 1
     pitch: 1
     loop: 0
-    spatialBlend: 1
-  musics: []
+    spatialBlend: 0
+  - name: Spray2
+    audioClip: {fileID: 8300000, guid: fb67a99dbb028d64a9eca7f0c2a8dfff, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: Hit
+    audioClip: {fileID: 8300000, guid: 2afdd53a9c7a77e4cae1261ab1fe1b57, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
