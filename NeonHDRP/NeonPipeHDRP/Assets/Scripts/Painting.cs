@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class Painting : MonoBehaviour
 {
@@ -74,9 +75,9 @@ public class Painting : MonoBehaviour
                 float forward = Vector3.Dot(newProjectPeinture, t.forward);
                 float right = Vector3.Dot(newProjectPeinture, t.right);
 
-                if (Mathf.Abs(up) < 4 && Mathf.Abs(right) < 5 && forward > 0)
+                if (Mathf.Abs(up) < t.GetComponent<DecalProjector>().size.y/2f && Mathf.Abs(right) < t.GetComponent<DecalProjector>().size.x / 2f && forward > 0)
                 {
-                    score++;
+                    score += 10;
                     playerUI.UpdateScoreText(score);
 
                     if (scoringSFX != null)
