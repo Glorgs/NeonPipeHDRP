@@ -11,13 +11,16 @@ public class InGamePlayerUI : MonoBehaviour
     
     [SerializeField] private RawImage[] hearts;
 
+    public int blinkFrame = 3;
+
     private int score = 0;
+    private CanvasRenderer scoreRenderer;
 
     private void Start() {
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
 
-        
+        scoreRenderer = scoreText.gameObject.GetComponent<CanvasRenderer>();
     }
 
     public void UpdateScoreText(int currentScore) {

@@ -2626,7 +2626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: 0}
+  m_AnchoredPosition: {x: -30, y: 0}
   m_SizeDelta: {x: 37.6911, y: 37.6911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8975150125257767736
@@ -2657,7 +2657,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 363e4e1c8fcdeb349bcbeb2b94cbf0b3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2702,7 +2702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 120, y: 50}
+  m_AnchoredPosition: {x: 80, y: 30}
   m_SizeDelta: {x: 542.80005, y: 426.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8975150125480683022
@@ -2858,8 +2858,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2934,7 +2934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 30, y: 0}
   m_SizeDelta: {x: 37.6911, y: 37.6911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8975150126121077341
@@ -2965,7 +2965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 363e4e1c8fcdeb349bcbeb2b94cbf0b3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3037,7 +3037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 363e4e1c8fcdeb349bcbeb2b94cbf0b3, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3196,6 +3196,7 @@ MonoBehaviour:
   - {fileID: 8975150126121077340}
   - {fileID: 8975150126137363854}
   - {fileID: 8975150125257767743}
+  blinkFrame: 3
 --- !u!1 &8975150126595216985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,7 +3235,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -120, y: 50}
+  m_AnchoredPosition: {x: -80, y: 30}
   m_SizeDelta: {x: 529.19995, y: 426.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8975150126595216965
@@ -3332,7 +3333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: 0}
+  m_AnchoredPosition: {x: -30, y: 0}
   m_SizeDelta: {x: 37.6911, y: 37.6911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8975150126600722807
@@ -3363,7 +3364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 8a2b44bf982766546bc0c3d739b994a9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3435,7 +3436,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 8a2b44bf982766546bc0c3d739b994a9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3476,7 +3477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 30, y: 0}
   m_SizeDelta: {x: 37.6911, y: 37.6911}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8975150126822187147
@@ -3507,7 +3508,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 8a2b44bf982766546bc0c3d739b994a9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3606,8 +3607,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3768,6 +3769,7 @@ MonoBehaviour:
   - {fileID: 8975150126600722806}
   - {fileID: 8975150126717748880}
   - {fileID: 8975150126822187146}
+  blinkFrame: 3
 --- !u!1 &9205790851632353526
 GameObject:
   m_ObjectHideFlags: 0

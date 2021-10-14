@@ -993,7 +993,9 @@ MonoBehaviour:
   chunkPrefab: {fileID: 8305128455239871217, guid: 725a53c299fdf6b4bb0319747c20875f, type: 3}
   maxNumberChunk: 5
   tagPrefab: {fileID: 120220310239105473, guid: c251d08665826bc439d291a864e5f0e6, type: 3}
-  obstaclePrefab: {fileID: 2961133163656659024, guid: 5d951b3e335bf764994d997fec6c3861, type: 3}
+  obstaclePrefab:
+  - {fileID: 2961133163656659024, guid: 5d951b3e335bf764994d997fec6c3861, type: 3}
+  - {fileID: 471049648389598292, guid: 7a61eac7c65e3d244952c2125fd38807, type: 3}
   distanceParcouru: 0
   timeDifficulty: 19000000280000003c0000004b000000690000007800000096000000
   sliceNumbers:
