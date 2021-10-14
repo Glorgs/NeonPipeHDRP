@@ -36,12 +36,13 @@ public class PlayerController : MonoBehaviour
 
         InitializeActionMap();
 
-        actionMap["Paint"].performed += ctx => PaintingManager();
+        actionMap["Paint"].performed += ctx => StartPaint();
+        actionMap["Paint"].canceled += ctx => StopPaint();
     }
 
     private void Start() {
         playerRb = GetComponentInChildren<Rigidbody>();
-        isPainting = true;
+        isPainting = false;
 
         InitializeAim();
         // InitializeConstraint();
@@ -104,8 +105,16 @@ public class PlayerController : MonoBehaviour
          return Mathf.Clamp(angle, min, max);
      }
 
-    private void PaintingManager() {
-        isPainting = !isPainting;
+    // private void PaintingManager() {
+    //     isPainting = !isPainting;
+    // }
+
+    private void StartPaint() {
+        isPainting = true;
+    }
+
+    private void StopPaint() {
+        isPainting = false;
     }
 
     private void OnEnable() {
