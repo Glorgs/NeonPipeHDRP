@@ -7,13 +7,13 @@ CONTROLES :
 
 JOUEUR 1 :
 Déplacement du Joueur : Q<>D
-Activation du Spray : S
+Activation du Spray : G
 Visée du Spray : F<>H
 
 JOUEUR 2 :
 Déplacement du Joueur : ← <> →
-Activation du Spray : ↓
-Visée du Spray : 1<>3
+Activation du Spray : 2 (Numpad)
+Visée du Spray : 1<>3 (Numpad)
 
 =============================================================================================
 CREDITS 
