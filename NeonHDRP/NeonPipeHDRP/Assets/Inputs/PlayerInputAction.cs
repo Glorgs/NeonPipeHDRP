@@ -249,7 +249,6 @@ public class @PlayerInputAction : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1998c80f-4f92-4616-8252-4bb5a3375ab7"",
-                    ""path"": ""<Keyboard>/downArrow"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
                     ""processors"": """",
