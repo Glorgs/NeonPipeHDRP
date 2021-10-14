@@ -18,6 +18,7 @@ public class AudioManager : MySingleton<AudioManager>
 
     public void Start()
     {
+        DontDestroyOnLoad(gameObject);
         Play("Music", this.gameObject);
     }
 

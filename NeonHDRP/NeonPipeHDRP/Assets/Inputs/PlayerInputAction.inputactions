@@ -108,7 +108,7 @@
                 {
                     "name": "",
                     "id": "ca945ff6-d61f-4cb3-9808-ebb5d263b039",
-                    "path": "<Keyboard>/s",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -236,7 +236,7 @@
                 {
                     "name": "",
                     "id": "1998c80f-4f92-4616-8252-4bb5a3375ab7",
-                    "path": "<Keyboard>/downArrow",
+                    "path": "<Keyboard>/2",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

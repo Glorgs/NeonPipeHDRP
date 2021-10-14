@@ -28,6 +28,8 @@ public class UIManager : MySingleton<UIManager>
     }
 
     public void StartGame() {
+        AudioManager.Si().Stop("Music");
+        AudioManager.Si().Play("MusicPlay", AudioManager.Si().gameObject);
         SceneManager.LoadScene(1);
     }
 
@@ -58,6 +60,8 @@ public class UIManager : MySingleton<UIManager>
     }
 
     public void GoToMenu() {
+        AudioManager.Si().Stop("MusicPlay");
+        AudioManager.Si().Play("Music", AudioManager.Si().gameObject);
         SceneManager.LoadScene(0);
         Time.timeScale = 1f;
     }

@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33fb644a9027134f832bf0094585763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingAngle: 30
 --- !u!1 &476409792593663855
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +537,8 @@ MonoBehaviour:
   aimingSpeedIncrease: 0.001
   aimingSpeedMax: 15
   spray: {fileID: 476409792593663855}
+  spraySFX: 
+  isPainting: 0
 --- !u!114 &393771522399567742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,6 +554,8 @@ MonoBehaviour:
   timeBetweenSpawn: 0.01
   decalPrefab: {fileID: 3903896107487537892, guid: 6770ff232fab0554da1c9e59c3ede21a, type: 3}
   decalSpawnTransform: {fileID: 476409792593663852}
+  spraySFX: 
+  scoringSFX: 
   playerUI: {fileID: 0}
   timeBetweenSpawnDecrease: 0.001
   timeBetweenSpawnMin: 0.0001
@@ -569,6 +574,9 @@ MonoBehaviour:
   numberHP: 3
   invulnerabilityTime: 1
   blinkFrame: 3
+  damageSFX: 
+  playerUI: {fileID: 0}
+  scoreLostOnCollision: 50
 --- !u!1 &476409793276807181
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33fb644a9027134f832bf0094585763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingAngle: 30
 --- !u!1 &476409793373632598
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,6 +839,8 @@ MonoBehaviour:
   aimingSpeedIncrease: 0.001
   aimingSpeedMax: 15
   spray: {fileID: 476409791989062247}
+  spraySFX: 
+  isPainting: 0
 --- !u!114 &393771523177304018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +856,8 @@ MonoBehaviour:
   timeBetweenSpawn: 0.01
   decalPrefab: {fileID: 3903896107487537892, guid: 6770ff232fab0554da1c9e59c3ede21a, type: 3}
   decalSpawnTransform: {fileID: 476409791989062244}
+  spraySFX: 
+  scoringSFX: 
   playerUI: {fileID: 0}
   timeBetweenSpawnDecrease: 0.001
   timeBetweenSpawnMin: 0.0001
@@ -863,6 +876,9 @@ MonoBehaviour:
   numberHP: 3
   invulnerabilityTime: 1
   blinkFrame: 3
+  damageSFX: 
+  playerUI: {fileID: 0}
+  scoreLostOnCollision: 50
 --- !u!1 &476409793574844320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,6 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33fb644a9027134f832bf0094585763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingAngle: 30
 --- !u!1 &1603721710219006421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b33fb644a9027134f832bf0094585763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movingAngle: 30
 --- !u!1 &2027896754649878447
 GameObject:
   m_ObjectHideFlags: 0
