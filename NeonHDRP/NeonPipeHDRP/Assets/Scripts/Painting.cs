@@ -53,7 +53,7 @@ public class Painting : MonoBehaviour
 
     void CheckIfInTag()
     {
-        Vector3 projectionPeinture = peinture.transform.position + peinture.transform.forward * 7.5f;
+        Vector3 projectionPeinture = peinture.transform.position;// + peinture.transform.forward * 7.5f;
         foreach(GameObject obj in PipeManager.Si().chunksPipe)
         {
             foreach (GameObject tag in obj.GetComponent<Pipe>().listTag)
