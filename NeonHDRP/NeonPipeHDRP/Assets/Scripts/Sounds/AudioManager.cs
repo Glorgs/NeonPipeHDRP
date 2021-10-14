@@ -18,7 +18,7 @@ public class AudioManager : MySingleton<AudioManager>
 
     public void Start()
     {
-        Play("AmbienceLabo", this.gameObject);
+        Play("Music", this.gameObject);
     }
 
     public void FightLaunch()

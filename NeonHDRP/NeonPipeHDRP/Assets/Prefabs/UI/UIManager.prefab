@@ -1365,8 +1365,8 @@ MonoBehaviour:
   EndMenu: {fileID: 46651269656428335}
   InGameUI: {fileID: 8975150126511182066}
   winner: {fileID: 2037688915}
-  player1UI: {fileID: 0}
-  player2UI: {fileID: 0}
+  player1UI: {fileID: 8975150127101945026}
+  player2UI: {fileID: 8975150126537957909}
 --- !u!1 &3779046428416356155
 GameObject:
   m_ObjectHideFlags: 0

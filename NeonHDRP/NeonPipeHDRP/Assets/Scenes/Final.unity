@@ -650,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 912329496}
     - target: {fileID: 393771522399567742, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: spraySFX
-      value: Spray
+      value: Spray2
       objectReference: {fileID: 0}
     - target: {fileID: 393771523177304017, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: playerUI
@@ -666,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 912329497}
     - target: {fileID: 393771523177304018, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: spraySFX
-      value: Spray
+      value: Spray1
       objectReference: {fileID: 0}
     - target: {fileID: 393771523177304018, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: decalPrefab
@@ -681,8 +681,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8400000, guid: 0888d4ac35cafdb4ab8966bcbaf13483, type: 2}
     - target: {fileID: 476409793187033838, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: spraySFX
+      value: Spray2
+      objectReference: {fileID: 0}
+    - target: {fileID: 476409793187033838, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: aimingSpeedMax
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 476409793455770787, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: spraySFX
+      value: Spray1
       objectReference: {fileID: 0}
     - target: {fileID: 476409793455770787, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: aimingSpeed
@@ -1692,7 +1700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[0].loop
@@ -1700,7 +1708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[0].name
-      value: t
+      value: Music
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[1].loop
@@ -1716,7 +1724,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[2].name
-      value: Spray
+      value: Spray1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
+      propertyPath: soundsFx.Array.data[3].name
+      value: Spray2
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[1].pitch
@@ -1727,11 +1739,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
+      propertyPath: soundsFx.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[1].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
+      propertyPath: soundsFx.Array.data[3].volume
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
@@ -1744,6 +1764,10 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 2afdd53a9c7a77e4cae1261ab1fe1b57, type: 3}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
       propertyPath: soundsFx.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fb67a99dbb028d64a9eca7f0c2a8dfff, type: 3}
+    - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
+      propertyPath: soundsFx.Array.data[3].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: fb67a99dbb028d64a9eca7f0c2a8dfff, type: 3}
     - target: {fileID: 1716484300861699707, guid: bf0b262def9dd914a8bffea034abb351, type: 3}
