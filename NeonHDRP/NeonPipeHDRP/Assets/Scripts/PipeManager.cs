@@ -10,7 +10,7 @@ public class PipeManager : MySingleton<PipeManager>
     public GameObject chunkPrefab;
     public int maxNumberChunk = 3;
     public GameObject tagPrefab;
-    public GameObject obstaclePrefab;
+    public GameObject[] obstaclePrefab;
 
     [SerializeField]
     private float distanceParcouru = 0f;
@@ -156,7 +156,8 @@ public class PipeManager : MySingleton<PipeManager>
                     Debug.Log("hello");
                     //Instantiate(tagPrefab, hit.point, Quaternion.identity);
                 }
-                GameObject obstacle = Instantiate(obstaclePrefab, startPoint + new Vector3(0, 0, (pipeLength / numberHorizontalSlice) * horizontalSlice) + dir * 8, Quaternion.AngleAxis(angle + 90, Vector3.forward));
+
+                GameObject obstacle = Instantiate(obstaclePrefab[(int)Random.Range(0, obstaclePrefab.Length)], startPoint + new Vector3(0, 0, (pipeLength / numberHorizontalSlice) * horizontalSlice) + dir * 8, Quaternion.AngleAxis(angle + 90, Vector3.forward));
                 pipe.obstacle.Add(obstacle);
 
             }

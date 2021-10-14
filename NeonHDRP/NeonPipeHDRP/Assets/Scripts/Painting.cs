@@ -37,6 +37,7 @@ public class Painting : MonoBehaviour
 
             if(spraySFX != null)
             {
+                Debug.Log("spray");
                 AudioManager.Si().Play(spraySFX, AudioManager.Si().gameObject);
             }
             CheckIfInTag();
