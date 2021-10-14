@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 120220310239105479}
   - component: {fileID: 120220310239105478}
   m_Layer: 0
-  m_Name: TagProjector
+  m_Name: TagProjectorBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Version: 2
-  m_Material: {fileID: 2100000, guid: 08e41c7bd60510347b34ef7a3d54e128, type: 2}
+  m_Material: {fileID: 2100000, guid: ba31830296136f74d99c15bfa7ee8988, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 0.9
   m_StartAngleFade: 180
@@ -54,5 +54,5 @@ MonoBehaviour:
   m_AffectsTransparency: 0
   m_DecalLayerMask: 1
   m_Offset: {x: 0, y: 0, z: 5}
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Size: {x: 50, y: 5, z: 10}
   m_FadeFactor: 1

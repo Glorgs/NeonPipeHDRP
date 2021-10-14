@@ -9,7 +9,7 @@ public class PipeManager : MySingleton<PipeManager>
     public List<GameObject> chunksPipe;
     public GameObject chunkPrefab;
     public int maxNumberChunk = 3;
-    public GameObject tagPrefab;
+    public GameObject[] tagPrefab;
     public GameObject[] obstaclePrefab;
 
     [SerializeField]
@@ -108,7 +108,7 @@ public class PipeManager : MySingleton<PipeManager>
         Vector3 offset = new Vector3(0,0, baseOffset);
        
         Vector3 dir = Vector3.zero;
-        for (int j = 0; j < 5; j++)
+        for (int j = 0; j < 3; j++)
         {
             float angle = Random.Range(0, 360);
             for (int i = 0; i < 4; i++)
@@ -117,7 +117,7 @@ public class PipeManager : MySingleton<PipeManager>
                 if (spawn == 0)
                 {
                     dir = Quaternion.AngleAxis(angle, Vector3.forward) * Vector3.right;
-                    GameObject tag = Instantiate(tagPrefab, pipePosition + offset + dir * 5f, Quaternion.LookRotation(dir, Vector3.up));
+                    GameObject tag = Instantiate(tagPrefab[(int)Random.Range(0, tagPrefab.Length)], pipePosition + offset + dir * 5f, Quaternion.LookRotation(dir, Vector3.up));
                     tag.transform.SetParent(pipe.transform);
                     pipe.listTag.Add(tag);
                 }

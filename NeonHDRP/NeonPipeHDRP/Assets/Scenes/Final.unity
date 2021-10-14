@@ -672,6 +672,22 @@ PrefabInstance:
       propertyPath: decalPrefab
       value: 
       objectReference: {fileID: 3903896107487537892, guid: dc9b157b63ec44246a03830e92684c98, type: 3}
+    - target: {fileID: 476409792944830311, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: clearColorMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 476409792944830311, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: backgroundColorHDR.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476409792944830311, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: backgroundColorHDR.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476409792944830311, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: backgroundColorHDR.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 476409792944830312, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -947,7 +963,7 @@ Transform:
   m_LocalScale: {x: -5.25, y: 1, z: -8.44}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574883109
 GameObject:
@@ -1075,7 +1091,10 @@ MonoBehaviour:
   - {fileID: 1122217087}
   chunkPrefab: {fileID: 8305128455239871217, guid: 725a53c299fdf6b4bb0319747c20875f, type: 3}
   maxNumberChunk: 7
-  tagPrefab: {fileID: 120220310239105473, guid: c251d08665826bc439d291a864e5f0e6, type: 3}
+  tagPrefab:
+  - {fileID: 120220310239105473, guid: 3e8ad6f62514dde42a564fd1af7ff5b8, type: 3}
+  - {fileID: 120220310239105473, guid: c251d08665826bc439d291a864e5f0e6, type: 3}
+  - {fileID: 120220310239105473, guid: 1614137ecfe587344a7b9a821f35dbce, type: 3}
   obstaclePrefab:
   - {fileID: 2961133163656659024, guid: 5d951b3e335bf764994d997fec6c3861, type: 3}
   - {fileID: 471049648389598292, guid: 7a61eac7c65e3d244952c2125fd38807, type: 3}
@@ -2098,7 +2117,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8305128455239871183, guid: 725a53c299fdf6b4bb0319747c20875f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8305128455239871183, guid: 725a53c299fdf6b4bb0319747c20875f, type: 3}
       propertyPath: m_LocalPosition.x
