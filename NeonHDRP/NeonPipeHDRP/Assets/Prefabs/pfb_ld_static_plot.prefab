@@ -44,7 +44,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 338.01892
+  m_Intensity: 48.585964
   m_Range: 5.8390064
   m_SpotAngle: 83.88609
   m_InnerSpotAngle: 21.80208
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 544.1063
+  m_Intensity: 78.208435
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -273,7 +273,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 544
+  m_RenderingLayerMask: 545
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5785dffa903a6a94a948464814af22bc, type: 2}

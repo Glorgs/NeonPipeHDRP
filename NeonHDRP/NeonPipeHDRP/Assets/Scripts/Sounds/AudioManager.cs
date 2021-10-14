@@ -18,7 +18,7 @@ public class AudioManager : MySingleton<AudioManager>
 
     public void Start()
     {
-        Play("AmbienceLabo", this.gameObject);
+        Play("Music", this.gameObject);
     }
 
     public void FightLaunch()
@@ -36,11 +36,25 @@ public class AudioManager : MySingleton<AudioManager>
         sp.audioSource.Stop();
     }
 
+    public void Stop(string name)
+    {
+        try
+        {
+            SoundParam sp = Array.Find(soundsFx, sound => sound.name.Equals(name));
+            sp.audioSource.Stop();
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("Audio clip" + name + " non existant");
+        }
+    }
+
     public void Play(string name, GameObject sourceObject)
     {
         try{
             SoundParam sp = Array.Find(soundsFx, sound => sound.name.Equals(name));
-        
+
+            
 
             //Si vide, on l'initialise (il va avoir la position de l'objet child)
             if(sp.audioSource == null)
@@ -50,7 +64,12 @@ public class AudioManager : MySingleton<AudioManager>
 
             }
 
-            if( name.Equals("FootSteps"))
+            if(sp.audioSource.isPlaying)
+            {
+                return;
+            }
+
+            if ( name.Equals("FootSteps"))
             {
                 float rand = UnityEngine.Random.Range(0.95f,1.5f);
                 sp.audioSource.pitch = rand;
@@ -61,9 +80,11 @@ public class AudioManager : MySingleton<AudioManager>
             {
                 sp.audioSource.PlayOneShot(sp.audioClip);
             }
+
+            
         }
         catch(NullReferenceException){
-            // Debug.Log("Audio clip" + name + " non existant");
+             Debug.Log("Audio clip" + name + " non existant");
         }
     } 
 

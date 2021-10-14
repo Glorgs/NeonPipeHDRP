@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     //DEBUG : A ENLEVER DANS LA PREFAB FINALE
     public GameObject spray;
+    public string spraySFX;
 
     private Rigidbody playerRb;
 
@@ -115,6 +116,7 @@ public class PlayerController : MonoBehaviour
 
     private void StopPaint() {
         isPainting = false;
+        AudioManager.Si().Stop(spraySFX);
     }
 
     private void OnEnable() {
