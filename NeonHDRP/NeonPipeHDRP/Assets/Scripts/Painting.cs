@@ -47,6 +47,14 @@ public class Painting : MonoBehaviour
         UpdatePaintingRate();
     }
 
+    public void AddScore(int scoreModifier) {
+        score += scoreModifier;
+    }
+
+    public int GetScore() {
+        return score;
+    }
+
     private void UpdatePaintingRate() {
         timeBetweenSpawn = Mathf.Clamp(timeBetweenSpawn - timeBetweenSpawnDecrease * Time.deltaTime, timeBetweenSpawnMin, 1);
     }

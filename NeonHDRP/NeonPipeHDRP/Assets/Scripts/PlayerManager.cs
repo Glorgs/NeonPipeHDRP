@@ -10,21 +10,19 @@ public class PlayerManager : MonoBehaviour
     public string damageSFX;
 
     public InGamePlayerUI playerUI;
+    public int scoreLostOnCollision = 5;
 
     private Renderer playerRenderer;
     private Rigidbody playerBody;
+
+    private Painting playerPainting;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRenderer = GetComponentInChildren<Renderer>();
         playerBody = GetComponentInChildren<Rigidbody>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerPainting = GetComponent<Painting>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -44,7 +42,10 @@ public class PlayerManager : MonoBehaviour
             AudioManager.Si().Play(damageSFX, AudioManager.Si().gameObject);
         }
         
+        playerPainting.AddScore(-scoreLostOnCollision);
+
         playerUI.UpdateLife(numberHP);
+        playerUI.UpdateScoreText(playerPainting.GetScore());
 
         if (numberHP == 0)
         {
