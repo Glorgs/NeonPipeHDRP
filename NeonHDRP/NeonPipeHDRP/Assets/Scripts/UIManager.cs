@@ -12,6 +12,9 @@ public class UIManager : MySingleton<UIManager>
     [SerializeField] private GameObject EndMenu;
     [SerializeField] private GameObject InGameUI;
     [SerializeField] private TextMeshProUGUI winner;
+
+    [SerializeField] private InGamePlayerUI player1UI;
+    [SerializeField] private InGamePlayerUI player2UI;
     private PlayerInputAction playerAction;
     private InputActionMap actionMap;
     private bool isPaused;
@@ -63,7 +66,9 @@ public class UIManager : MySingleton<UIManager>
         InGameUI.SetActive(false);
         EndMenu.SetActive(true);
         Time.timeScale = 0f;
-        //Display correct player
+        
+        WinnerText winnerText = EndMenu.GetComponentInChildren<WinnerText>();
+        winnerText.SetWinnerText(player1UI.GetScore(), player2UI.GetScore());
     }
 
     private void OnEnable() {

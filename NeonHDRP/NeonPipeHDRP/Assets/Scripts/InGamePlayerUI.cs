@@ -11,6 +11,8 @@ public class InGamePlayerUI : MonoBehaviour
     
     [SerializeField] private RawImage[] hearts;
 
+    private int score = 0;
+
     private void Start() {
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
@@ -19,7 +21,12 @@ public class InGamePlayerUI : MonoBehaviour
     }
 
     public void UpdateScoreText(int currentScore) {
+        score = currentScore;
         scoreText.SetText(currentScore.ToString());
+    }
+
+    public int GetScore() {
+        return score;
     }
 
     public void UpdateLife(int currentLife) {

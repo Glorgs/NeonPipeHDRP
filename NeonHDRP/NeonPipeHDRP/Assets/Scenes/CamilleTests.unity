@@ -656,6 +656,10 @@ PrefabInstance:
       propertyPath: decalPrefab
       value: 
       objectReference: {fileID: 3903896107487537892, guid: dc9b157b63ec44246a03830e92684c98, type: 3}
+    - target: {fileID: 476409792944830312, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 476409792944830313, guid: c0af0080b0ae95c499d16c4e9f16fb5f, type: 3}
       propertyPath: m_TargetTexture
       value: 
@@ -1205,6 +1209,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1730887314955786827, guid: 89d570bb92dc82049be6265461475f99, type: 3}
+      propertyPath: player1UI
+      value: 
+      objectReference: {fileID: 912329497}
+    - target: {fileID: 1730887314955786827, guid: 89d570bb92dc82049be6265461475f99, type: 3}
+      propertyPath: player2UI
+      value: 
+      objectReference: {fileID: 912329496}
     - target: {fileID: 1730887314955786836, guid: 89d570bb92dc82049be6265461475f99, type: 3}
       propertyPath: m_Name
       value: UIManager
